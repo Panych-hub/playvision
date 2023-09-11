@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import Card from './components/Card.vue'
 import type {CardType} from "./types/cardType";
-import {basicCard, basicMessage, loginFailed, thankForPurchase} from "./types/cardTypes";
+import {basicCard, basicMessage, compensation, loginFailed, thankForPurchase} from "./types/cardTypes";
 
 const cardList: CardType[] = [
     basicMessage,
     basicCard,
     thankForPurchase,
-    loginFailed
+    loginFailed,
+    compensation
 ]
 
 </script>

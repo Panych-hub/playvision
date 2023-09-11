@@ -3,14 +3,14 @@ export interface CardType{
     id: string,
     header: {
         info: string,
-        exitButton: boolean
+        exitButton?: boolean
     },
     body: {
         logo?: string,
         logoColor?: string ,
         title?: string,
         titleColor?: string,
-        description: string,
+        description: Array<string[]>,
     },
     footer: {
         buttons: Button[] | null
