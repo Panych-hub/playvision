@@ -20,14 +20,15 @@
         </div>
 
         <div class="modal-body"
-             :style="{'background': 'radial-gradient(ellipse at top,'+ logoColor +', 30%, #010b25, #010b25)'}"
+             :style="{'background': 'radial-gradient(200px 160px at top,'+ logoColor +', #010b25 130px, #010b25)'}"
              style="background-position: 50% 50%"
         >
           <span v-html="props.card.body.logo" />
-          <h4 class="mt-4 mb-2" :style="{'color': props.card.body.titleColor}">
+          <h4 class="mt-4 mb-4" :style="{'color': props.card.body.titleColor}">
             {{props.card.body.title}}</h4>
-          <div v-for="paragraph in props.card.body.description" class="mb-5 mx-5" style="color: #98abce">
-            <p v-for="sentence in paragraph" class="mb-1">
+          <div v-for="paragraph in props.card.body.description" class="mb-4 mx-5" style="color: #98abce">
+            <p v-for="sentence in paragraph" class="mb-1 " :class="[{'text-start': props.card.body.textConfig}]">
+
               {{ sentence }}
             </p>
           </div>
