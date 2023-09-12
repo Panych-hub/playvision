@@ -51,7 +51,7 @@ export const thankForPurchase: CardType = {
         exitButton: true
     },
     body: {
-        logo: '<img src="/src/assets/buy-48.png" style="width: 60px" alt="flag"/>',
+        logo: '<img src="/src/assets/buy-48.png" style="width: 60px" alt="buy"/>',
         logoColor: greenLogo,
         title: 'Покупка обрабатывается',
         titleColor: greenTitle,
@@ -71,7 +71,7 @@ export const loginFailed: CardType = {
         exitButton: true
     },
     body: {
-        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="flag"/>',
+        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="error"/>',
         logoColor: '#400f2c',
         title: 'Повторный вход',
         titleColor: redTitle,
@@ -90,7 +90,7 @@ export const compensation: CardType = {
         info: 'Компенсация'
     },
     body: {
-        logo: '',
+        logo: '<img src="/src/assets/chips.png" style="width: 100px" alt="chips"/>',
         logoColor: greenLogo,
         title: 'Доброго времени суток!',
         titleColor: greenTitle,
@@ -124,13 +124,17 @@ export const rewardForViewing: CardType = {
         info: 'Награда за просмотр',
     },
     body: {
-        logo: '',
+        logo: '<img src="/src/assets/chips.png" style="width: 100px" alt="chips"/>',
         logoColor: '#003370',
         title: 'Вы получили фишки!',
         titleColor: 'white',
         description: [['ADD 9.000M']]
     },
     footer: {
+        buttons: [{
+            color: 'green',
+            text: 'Забрать'
+        }]
     }
 }
 export const attention: CardType = {
@@ -152,7 +156,7 @@ export const warning: CardType = {
         info: 'Вы получили предупреждение',
     },
     body: {
-        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="flag"/>',
+        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="error"/>',
         logoColor: redLogo,
         title: 'Вы получили предупреждение',
         titleColor: redTitle,
@@ -178,7 +182,7 @@ export const temporaryBlocking: CardType = {
         info: 'Временная блокировка',
     },
     body: {
-        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="flag"/>',
+        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="error"/>',
         logoColor: redLogo,
         title: 'Ваш аккаунт заблокирован!',
         titleColor: redTitle,
@@ -205,7 +209,7 @@ export const permanentBlocking: CardType = {
         info: 'Временная блокировка',
     },
     body: {
-        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="flag"/>',
+        logo: '<img src="/src/assets/error.png" style="width: 60px" alt="error"/>',
         logoColor: redLogo,
         title: 'Ваш аккаунт заблокирован!',
         titleColor: redTitle,

@@ -5,7 +5,7 @@
   </button>
   <div class="modal fade text-center fw-bold " :id="props.card.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content" >
+      <div class="modal-content">
 
         <div class="modal-header border-0 justify-content-around"
              style="background-color: #01143f">
@@ -22,7 +22,10 @@
         <div class="modal-body"
              :style="{'background': 'radial-gradient(200px 160px at top,'+ logoColor +', #010b25 130px, #010b25)'}"
         >
-          <span v-html="props.card.body.logo" />
+          <div class="mt-4">
+            <span  v-html="props.card.body.logo" />
+          </div>
+
           <h4 class="mt-4 mb-4" :style="{'color': props.card.body.titleColor}">
             {{props.card.body.title}}
           </h4>
@@ -32,8 +35,10 @@
               {{ sentence }}
             </p>
           </div>
-          <div class="center">
-            <input v-if="props.card.body.inputField"
+          <div class="d-flex justify-content-center"
+               v-if="props.card.body.inputField"
+          >
+            <input
                    type="email"
                    class="form-control w-50 fw-bold"
                    id="email_input"
@@ -44,6 +49,11 @@
                    v-model="emailValue"
             >
           </div>
+          <span v-if="isEmailInvalid || emailValue === '' && props.card.body.inputField" style="color: #e44457">
+            Обязательное поле
+          </span>
+          <br v-else>
+
         </div>
         <div class="modal-footer justify-content-around border-0" style="background-color: #021031">
 
@@ -54,10 +64,11 @@
               data-bs-dismiss="modal"
               :style="{'background-color':  button.color}"
               style="min-width: 30%"
-              :disabled="isEmailInvalid"
+              :disabled="isEmailInvalid || emailValue === '' && props.card.body.inputField"
           >
             {{button.text}}
           </button>
+
         </div>
       </div>
     </div>
@@ -65,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import {computed, defineProps, type Ref, ref, watch} from "vue"
+import {computed, type ComputedRef, defineProps, type Ref, ref, watch} from "vue"
 import {CardType} from "../types/cardType";
 
 
@@ -75,20 +86,20 @@ const props = defineProps<{
 const logoColor: string = props.card.body.logoColor || '#010b25'
 
 const emailInput: Ref<HTMLInputElement | null> = ref(null);
-const emailValue = ref("");
+const emailValue: Ref<string> = ref("");
 watch(emailValue, (newValue) => {
   emailInput.value.value = newValue;
 });
-const isEmailInvalid = computed(() => {
+const isEmailInvalid: ComputedRef<boolean> = computed(() => {
   if (!emailValue.value) {
     return false;
   }
-  if (!emailValue.value === '') {
-    return false;
+  if (!emailInput.value) {
+    return true;
   }
   const requiredAttribute = emailInput.value.validity;
   return !requiredAttribute.valid;
-});
+})
 
 </script>
 
@@ -99,5 +110,8 @@ input:required {
 }
 input:required:invalid {
   border-color: #c00000;
+}
+#email_input::placeholder{
+  color: #3c4355;
 }
 </style>
