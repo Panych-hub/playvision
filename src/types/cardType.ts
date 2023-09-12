@@ -11,7 +11,8 @@ export interface CardType{
         title?: string,
         titleColor?: string,
         description: Array<string[]>,
-        textConfig?: boolean
+        textConfig?: boolean,
+        inputField?: boolean
     },
     footer: {
         buttons?: Button[] | null

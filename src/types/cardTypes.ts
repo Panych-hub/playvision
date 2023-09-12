@@ -136,7 +136,7 @@ export const rewardForViewing: CardType = {
 export const attention: CardType = {
     id: 'attention',
     header: {
-        info: 'Награда за просмотр',
+        info: 'Внимание',
         exitButton: true
     },
     body: {
@@ -220,6 +220,23 @@ export const permanentBlocking: CardType = {
         buttons: [{
             color: 'blue',
             text: 'В поддержку'
+        }]
+    }
+}
+export const mailForCheck: CardType = {
+    id: 'mailForCheck',
+    header: {
+        info: 'Почта для чека',
+        exitButton: true
+    },
+    body: {
+        description: [['Введите email, на который мы пришлем вам электронный чек']],
+        inputField: true
+    },
+    footer: {
+        buttons: [{
+            color: 'green',
+            text: 'Далее'
         }]
     }
 }

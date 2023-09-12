@@ -6,7 +6,7 @@ import {
   basicCard,
   basicMessage,
   compensation,
-  loginFailed,
+  loginFailed, mailForCheck,
   newStage, permanentBlocking,
   rewardForViewing, temporaryBlocking,
   thankForPurchase, warning
@@ -23,7 +23,8 @@ const cardList: CardType[] = [
     attention,
     warning,
     temporaryBlocking,
-    permanentBlocking
+    permanentBlocking,
+    mailForCheck
 ]
 
 </script>
