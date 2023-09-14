@@ -23,7 +23,8 @@
              :style="{'background': 'radial-gradient(200px 160px at top,'+ logoColor +', #010b25 130px, #010b25)'}"
         >
           <div class="mt-4">
-            <span  v-html="props.card.body.logo" />
+            <img v-if="props.card.body.logo" :src="images[props.card.body.logo]" style="width: 60px" :alt="props.card.body.logo" />
+
           </div>
 
           <h4 class="mt-4 mb-4" :style="{'color': props.card.body.titleColor}">
@@ -78,13 +79,23 @@
 <script setup lang="ts">
 import {computed, type ComputedRef, defineProps, type Ref, ref, watch} from "vue"
 import {CardType} from "../types/cardType";
+import flag from '@/assets/flag.png'
+import buy from '@/assets/buy-48.png'
+import error from '@/assets/error.png'
+import chips from '@/assets/chips.png'
 
+const images = {
+  'flag': flag,
+  'buy': buy,
+  'error': error,
+  'chips': chips
+}
 
 const props = defineProps<{
     card: CardType;
   }>()
 const logoColor: string = props.card.body.logoColor || '#010b25'
-
+const img = '@/assets/' + props.card.body.logo
 const emailInput: Ref<HTMLInputElement | null> = ref(null);
 const emailValue: Ref<string> = ref("");
 watch(emailValue, (newValue) => {
